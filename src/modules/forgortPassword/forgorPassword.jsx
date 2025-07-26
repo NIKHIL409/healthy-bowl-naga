@@ -11,7 +11,6 @@ import Input from "../../components/Input/input";
 export const ForgorPassword = () => {
 
     const handleChange = (event) => {
-        // Handle input changes if needed
         console.log(event.target.value);
     }
 
