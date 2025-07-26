@@ -23,7 +23,8 @@ export const Dashboard = () => {
     const [deliveryDetails, setDeliveryDetails] = React.useState({
         deliveryName: '',
         deliveryContact: '',
-        deliveryAddress: ''
+        deliveryAddress: '',
+        deliveryPincode: ''
     });
 
     const navigate = useNavigate();
@@ -67,12 +68,16 @@ export const Dashboard = () => {
         const deliveryName = deliveryDetails?.deliveryName;
         const deliveryContact = deliveryDetails?.deliveryContact;
         const deliveryAddress = deliveryDetails?.deliveryAddress;
+        const deliveryPincode = deliveryDetails?.deliveryPincode;
 
         if (deliveryName && deliveryContact && deliveryAddress) {
             console.log(`Order placed for ${selectCard?.name} with delivery details: 
             Name: ${deliveryName}, 
             Contact: ${deliveryContact}, 
-            Address: ${deliveryAddress}`);
+            Address: ${deliveryAddress}
+            PinCode: ${deliveryPincode}
+            `);
+
             alert('Order placed successfully!');
             navigate('/');
         } else {
@@ -94,7 +99,7 @@ export const Dashboard = () => {
                 ))}
             </DashboardCardContainer>
             {selectCard && <SelectedCardContainer>
-                <SelectCardDescription>{`You have select ${selectCard?.name} `}</SelectCardDescription>
+                <SelectCardDescription>{`You have selected ${selectCard?.name} - ₹${selectCard.price} `}</SelectCardDescription>
             </SelectedCardContainer>}
 
             <DeliveryAddressContainer>
@@ -102,6 +107,7 @@ export const Dashboard = () => {
                     <Input type='text' label='Delivery Name' name='deliveryName' required onChange={handleChange} />
                     <Input type='text' label='Delivery Contact' name='deliveryContact' required onChange={handleChange} />
                     <Input type='text' label='Delivery Address' name='deliveryAddress' required onChange={handleChange} />
+                    <Input type='number' label='Delivery Pincode' max={6} name='deliveryPincode' required onChange={handleChange} />
                     <DeliveryButton type='submit' >Place Order</DeliveryButton>
                 </DeliveryForm>
             </DeliveryAddressContainer>
