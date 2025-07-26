@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Healthy Bowl</string>
+    <string name="title_activity_main">Healthy Bowl</string>
+    <string name="package_name">com.healthy.bowl</string>
+    <string name="custom_url_scheme">com.healthy.bowl</string>
+</resources>
