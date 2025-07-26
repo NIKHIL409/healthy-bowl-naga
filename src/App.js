@@ -1,9 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
-import Login from './modules/Login/login';
+import Login from './modules/login/login';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import SignUp from './modules/SignUp/signup';
+import SignUp from './modules/signup/signup';
 import ForgorPassword from './modules/forgortPassword/forgorPassword';
+import Dashboard from './modules/dashboard/dashboard';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/forgotpassword" element={<ForgorPassword />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         {/* <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/order-details" element={<OrderDetails />} />

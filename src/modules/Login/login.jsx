@@ -1,4 +1,5 @@
-import react from "react";
+import react from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
     LoginContainer,
     LoginTitle,
@@ -8,10 +9,10 @@ import {
     SignUpLink,
     ForgotPasswordLink,
     DoYouHaveAccount
-} from "./login-styles.js";
-import Input from "../../components/Input/input.jsx";
-
+} from './login-styles.js';
+import Input from '../../components/Input/input.jsx';
 const Login = () => {
+    const navigate = useNavigate();
     const [formData, setFormData] = react.useState({
         mobile: '',
         password: ''
@@ -28,10 +29,11 @@ const Login = () => {
         event.preventDefault();
         const { mobile, password } = formData;
         if (mobile && password) {
-            console.log("Login successful with mobile:", mobile, "and password:", password);
+            navigate('/dashboard');
+            console.log('Login successful with mobile:', mobile, 'and password:', password);
         }
         else {
-            console.log("Please fill in all fields");
+            console.log('Please fill in all fields');
         }
     };
     return (
@@ -39,21 +41,21 @@ const Login = () => {
             <LoginTitle>HEALTHY BOWL</LoginTitle>
             <FormLogin onSubmit={handleLogin}>
                 <FormGroup>
-                    <Input type="text" label="Mobile" name="mobile" required onChange={handleChange} />
+                    <Input type='text' label='Mobile' name='mobile' required onChange={handleChange} />
                 </FormGroup>
                 <FormGroup>
-                    <Input type="password" id="Password" name="password" label="Password" required onChange={handleChange} />
+                    <Input type='password' id='Password' name='password' label='Password' required onChange={handleChange} />
                 </FormGroup>
-                <LoginButton type="submit" className="LoginButton">Login</LoginButton>
+                <LoginButton type='submit' className='LoginButton'>Login</LoginButton>
             </FormLogin>
             <ForgotPasswordLink>
-                <a href="/forgot-password">Forgot Password?</a>
+                <a href='/forgotpassword'>Forgot Password?</a>
             </ForgotPasswordLink>
             <DoYouHaveAccount>
                 <span>Do you have an account?</span>
             </DoYouHaveAccount>
             <SignUpLink>
-                <a href="/Signup">Sign Up</a>
+                <a href='/signup'>Sign Up</a>
             </SignUpLink>
         </LoginContainer >
     );
